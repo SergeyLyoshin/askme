@@ -8,7 +8,6 @@ class Question < ApplicationRecord
   belongs_to :user
 
   # валидируем сразу и связь, теперь нельзя создать вопрос, у которого нет юзера
-  validates :user, :text, presence: true
 
   validates :text, 
             presence: true,

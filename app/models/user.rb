@@ -6,11 +6,9 @@ class User < ApplicationRecord
   # Когда мы вызываем метод questions у экземпляра класса User, рельсы
   # поймут это как просьбу найти в базе все объекты класса Questions со
   # значением user_id равный user.id.
-  has_many :questions
+  
   has_many :questions, dependent: :destroy
 
-  validates :email, :username, presence: true
-  validates :email, :username, uniqueness: true
   #Валидации для задания:
   validates :username, length: { maximum: 40 },
                        presence: true, uniqueness: true, format: {with: /\A\w+\z/}
