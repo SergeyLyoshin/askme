@@ -7,9 +7,15 @@ class User < ApplicationRecord
   # поймут это как просьбу найти в базе все объекты класса Questions со
   # значением user_id равный user.id.
   has_many :questions
+  has_many :questions, dependent: :destroy
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
+  #Валидации для задания:
+  validates :username, length: { maximum: 40 },
+                       presence: true, uniqueness: true, format: {with: /\A\w+\z/}
+
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   attr_accessor :password
 
@@ -74,4 +80,12 @@ class User < ApplicationRecord
     # Иначе, возвращаем nil
     nil
   end
+
+  private
+
+  def downcase_username_and_email
+    username&.downcase!
+    email&.downcase!
+  end
+  
 end
