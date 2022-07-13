@@ -1,24 +1,31 @@
-# README
+Веб-приложение "Askme"
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Приложение реализующее идею, положенную в основу социальной сети ask.fm
 
-Things you may want to cover:
+Каждый пользователь может задать вопрос любому участнику системы.
 
-* Ruby version
+В приложении реализованы:
 
-* System dependencies
+регистрация пользователя;
+возможность задать вопрос зарегистрированным пользователям;
+редактирование профиля: исправление личных данных, изменение цвета фона в профиле;
 
-* Configuration
+Технологии:
+Ruby 2.7.4
+Ruby on Rails 6.1.6
+Webpacker 5
+СУБД в продакшн-окружении: Postgresql
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Приложение в учебных целях было развернуто на платформе Heroku (при переходе по ссылке необходимо немного подождать, чтобы приложение вышло из "спящего" режима)
+Для локального запуска:
+Клонировать репозиторий:
+$ git@github.com:saw-code/askme.git
+Установить любым удобным способом ruby 2.7.4, если отсутствует.
+Установить необходимые гемы и зависимости:
+$ bundle
+Применить миграции:
+$ bundle exec rails db:migrate
+Запустить сервер:
+$ bundle exec rails s
+В адресной строке веб-браузера указать:
+http://localhost:3000/
