@@ -12,9 +12,9 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
-  attr_accessor :password
+  attr_accessor :password, :password_confirmation
 
-  before_validation :downcase_username
+  before_validation :downcase_username_and_email
 
   before_save :encrypt_password
 
