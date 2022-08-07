@@ -45,7 +45,6 @@ class UsersController < ApplicationController
     @answered_questions = @user.questions.count(&:answer)
     @unanswered_questions = @questions_count - @answered_questions
 
-    @new_question = Question.new
   end
 
   private
