@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_02_065123) do
+ActiveRecord::Schema.define(version: 2022_08_12_142934) do
 
   create_table "questions", force: :cascade do |t|
     t.string "text"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2022_06_02_065123) do
     t.string "email"
     t.string "password_hash"
     t.string "password_salt"
+    t.string "background_color"
   end
 
   add_foreign_key "questions", "users"
