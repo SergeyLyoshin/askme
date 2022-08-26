@@ -7,6 +7,8 @@ class Question < ApplicationRecord
   # который равен question.user_id.
   belongs_to :user
 
+  belongs_to :author, class_name: "User", optional: true
+
   # валидируем сразу и связь, теперь нельзя создать вопрос, у которого нет юзера
 
   validates :text, 
